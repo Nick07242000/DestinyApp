@@ -15,6 +15,9 @@ function getToken() {
     req.headers.append('X-API-Key', APIKEY);
     fetch(req).then(response => {
         console.log(response);
+        response.json().then(data => {
+            console.log(data);
+        })
     })
 }
 
