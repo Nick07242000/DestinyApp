@@ -15,6 +15,7 @@ function getToken() {
     req.method = 'POST';
     req.headers.append('X-API-Key', APIKEY);
     req.headers.append('Authorization', 'Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW');
+    req.headers.append('Content-Type', 'application/x-www-form-urlencoded')
     fetch(req).then(response => {
         console.log(response);
         response.json().then(data => {
