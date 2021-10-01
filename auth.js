@@ -10,8 +10,7 @@ function getParameter(parameterName) {
 }
 
 function getToken() {
-    console.log(getParameter("code"));
-    let req = new Request(`${AUTHTOKEN}?client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`);
+    /*let req = new Request(`${AUTHTOKEN}?client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`);
     //separar en dos, pasar url,objeto
     req.method = 'POST';
     req.headers.append('X-API-Key', APIKEY);
@@ -21,7 +20,14 @@ function getToken() {
         response.json().then(data => {
             console.log(data);
         })
+    })*/
+    fetch(`${AUTHTOKEN}?client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`, {
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
     })
 }
+
 
 document.getElementById("test").addEventListener("click", getToken());
