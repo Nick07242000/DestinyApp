@@ -12,9 +12,9 @@ function getParameter(parameterName) {
 function getToken() {
     console.log(getParameter("code"));
     let req = new Request(`${AUTHTOKEN}?client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`);
+    //separar en dos, pasar url,objeto
     req.method = 'POST';
     req.headers.append('X-API-Key', APIKEY);
-    req.headers.append('Authorization', 'Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW');
     req.headers.append('Content-Type', 'application/x-www-form-urlencoded')
     fetch(req).then(response => {
         console.log(response);
