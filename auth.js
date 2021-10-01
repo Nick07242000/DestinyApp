@@ -5,8 +5,7 @@ const AUTHTOKEN = "https://www.bungie.net/platform/app/oauth/token/";
 const AUTHID = 23872;
 
 function auth() {
-    let req = new Request(`${AUTHURL}?client_id=12345&response_type=code&state=6i0mkLx79Hp91nzWVeHrzHG4`);
-    req.headers.append('X-API-Key',APIKEY);
+    let req = new Request(`${AUTHURL}?client_id=${AUTHID}&response_type=code&state=6i0mkLx79Hp91nzWVeHrzHG4`);
     fetch(req).then(response => {
         console.log(response);
     })
