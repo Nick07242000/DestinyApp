@@ -4,15 +4,16 @@ const AUTHURL = "https://www.bungie.net/en/oauth/authorize";
 const AUTHTOKEN = "https://www.bungie.net/platform/app/oauth/token/";
 const AUTHID = 23872;
 
-function auth() {
-    let req = new Request(`${AUTHURL}?client_id=${AUTHID}&response_type=code&state=6i0mkLx79Hp91nzWVeHrzHG4`);
-    fetch(req).then(response => {
-        console.log(response);
-    })
+function getParameter(parameterName) {
+    let parameters = new URLSearchParams(window.location.search);
+    return parameters.get(parameterName)
 }
 
-window.addEventListener("load", function() {
-    document.getElementById("test").addEventListener("click", function() {
-        auth();
-    })
-});
+function getToken() {
+    getParameter("code");
+    let req = new Request(`${APIROOTPATH}/User/GetMembershipsForCurrentUser/`);
+    req.headers.append('X-API-Key', APIKEY)
+    console.log(req);
+}
+
+document.getElementById("test").addEventListener("onclick", getToken());

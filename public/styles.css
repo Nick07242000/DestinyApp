@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+section {
+    margin: 30px;
+}
+
+.button {
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 10px
+}
