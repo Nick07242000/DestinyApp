@@ -10,9 +10,11 @@ function getParameter(parameterName) {
 }
 
 function getToken() {
-    getParameter("code");
-    let req = new Request(`${APIROOTPATH}/User/GetMembershipsForCurrentUser/`);
+    console.log(getParameter("code"));
+    let req = new Request(`${AUTHTOKEN}?client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`);
+    req.method = 'POST';
     req.headers.append('X-API-Key', APIKEY);
+    req.headers.append('Authorization', 'Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW');
     fetch(req).then(response => {
         console.log(response);
         response.json().then(data => {
