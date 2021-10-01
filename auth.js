@@ -18,4 +18,4 @@ function getToken() {
     })
 }
 
-document.getElementById("test").addEventListener("onclick", getToken());
+document.getElementById("test").addEventListener("click", getToken());
