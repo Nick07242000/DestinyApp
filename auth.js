@@ -12,8 +12,10 @@ function getParameter(parameterName) {
 function getToken() {
     getParameter("code");
     let req = new Request(`${APIROOTPATH}/User/GetMembershipsForCurrentUser/`);
-    req.headers.append('X-API-Key', APIKEY)
-    console.log(req);
+    req.headers.append('X-API-Key', APIKEY);
+    fetch(req).then(response => {
+        console.log(response);
+    })
 }
 
 document.getElementById("test").addEventListener("onclick", getToken());
