@@ -22,8 +22,8 @@ function getToken() {
     fetch(AUTHTOKEN,{
         method:'POST',
         body: `client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`,
-        headers:{
-          'content-type': 'application/json; charset=UTF-8'
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded'
         }}).then(response => {
         console.log(response);
         response.json().then(data => {
