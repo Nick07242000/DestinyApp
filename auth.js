@@ -23,7 +23,7 @@ function getToken() {
         method:'POST',
         body: `client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`,
         headers:{
-          'Content-type': 'application/json; charset=UTF-8'
+          'content-type': 'application/json; charset=UTF-8'
         }}).then(response => {
         console.log(response);
         response.json().then(data => {
