@@ -10,6 +10,7 @@ function getParameter(parameterName) {
 }
 
 function getToken() {
+    /*
     console.log(getParameter("code"));
     let req = new Request(AUTHTOKEN);
     //separar en dos, pasar url,objeto
@@ -17,12 +18,18 @@ function getToken() {
     req.headers.append('X-API-Key', APIKEY);
     req.headers.append('Content-Type', 'application/x-www-form-urlencoded')
     req.body = `client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`;
-    fetch(req).then(response => {
+    */
+    fetch( fetch(url,{
+        method:'POST',
+        body: `client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`,
+        headers:{
+          'Content-type': 'application/json; charset=UTF-8'
+        }}).then(response => {
         console.log(response);
         response.json().then(data => {
             console.log(data);
         })
-    })
+    }))
 }
 
 document.getElementById("test").addEventListener("click", getToken());
