@@ -9,13 +9,15 @@
     <script src="../auth.js" defer></script>
 </head>
 <body>
-    <header></header>
+    <header>
+        <h1></h1>
+    </header>
     <main>
         <section id="login">
             <a class="button" href="https://www.bungie.net/en/oauth/authorize?client_id=23872&response_type=code&state=6i0mkLx79Hp91nzWVeHrzHG4">Log In</a>
         </section>
         <section id="loggedin">
-            <a class="button" id="test" href="#">Test</a>
+            <a class="button" id="test" onclick="getToken()">Get Token</a>
         </section>
     </main>
     <footer></footer>
