@@ -19,7 +19,7 @@ function getToken() {
     req.headers.append('Content-Type', 'application/x-www-form-urlencoded')
     req.body = `client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`;
     */
-    fetch( fetch(url,{
+    fetch( fetch(AUTHTOKEN,{
         method:'POST',
         body: `client_id=${AUTHID}&grant_type=authorization_code&code=${getParameter("code")}`,
         headers:{
